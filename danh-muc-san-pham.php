@@ -1,21 +1,18 @@
 <?php require_once __DIR__ . "/autoload/autoload.php";
 
-$id = intval(getInput('id'));
-$EditCategory = $db->fetchID("category", $id);
+$category_id = intval(getInput('id'));
+$category = $db->findByID("category", $category_id);
 
 if (isset($_GET['p'])) {
-    # code...
-    $p = $_GET['p'];
+    $page = $_GET['p'];
 } else {
-    # code...
-    $p = 1;
+    $page = 1;
 }
 
-
-$sql = "select * from product where category_id =$id";
+$sql = "select * from product where category_id =$category_id";
 
 $total = count($db->fetchsql($sql));
-$product = $db->fetchJones("product", $sql, $total, $p, 3, true);
+$product = $db->fetchJones("product", $sql, $total, $page, 3, true);
 $sotrang = $product['page'];
 unset($product['page']);
 
@@ -23,42 +20,27 @@ $path = $_SERVER['SCRIPT_NAME'];
 ?>
 
 <?php require_once __DIR__ . "/layouts/header.php"; ?>
+
 <div class="col-md-9 bor">
-
-
     <section class="box-main1">
-        <h3 class="title-main"><a href=""><?php echo $EditCategory['name'] ?></a></h3>
+        <h3 class="title-main"><a href=""><?= $category['name'] ?></a></h3>
         <div class="showitem clearfix">
 
-            <?php foreach ($product as $item): ?>
-                <div class="col-md-3 item-product bor">
-                    <a href="chi-tiet-san-pham.php?id=<?php echo $item['id'] ?>">
-                        <img src="<?php echo uploads() ?>/product/<?php echo $item['image'] ?>" class="" width="100%"
-                             height="180">
-                    </a>
-                    <div class="info-item">
-                        <a href="chi-tiet-san-pham.php?id=<?php echo $item['id'] ?>"><?php echo $item['name'] ?></a>
-                        <p><strike class="sale"><?php echo formatPrice($item['price']) ?></strike> <b
-                                    class="price"><?php echo SalePrice($item['price'], $item['sale']) ?>đ</b></p>
-                    </div>
-                    <div class="hidenitem">
-                        <p><a href="chi-tiet-san-pham.php?id=<?php echo $item['id'] ?>"><i class="fa fa-search"></i></a>
-                        </p>
-                        <p><a href=""><i class="fa fa-heart"></i></a></p>
-                        <p><a href=""><i class="fa fa-shopping-basket"></i></a></p>
-                    </div>
-                </div>
-
-            <?php endforeach ?>
+            <?php foreach ($product as $item) {
+                include 'view/product_card.php';
+            }
+            ?>
 
         </div>
         <nav class="text-center">
             <ul class="pagination">
                 <?php for ($i = 1; $i <= $sotrang; $i++): ?>
 
-                    <li class="<?php echo isset($_GET['p']) && $_GET['p'] == $i ? 'active' : '' ?>"><a
-                                href="<?php echo $path ?>?id=<?php echo $id ?>&&p=<?php echo $i ?>">
-                            <?php echo $i ?></a></li>
+                    <li class="<?= $_GET['p'] == $i ? 'active' : '' ?>">
+                        <a href="<?= $path ?>?id=<?= $category_id ?>&p=<?= $i ?>">
+                            <?= $i ?>
+                        </a>
+                    </li>
                 <?php endfor; ?>
 
 

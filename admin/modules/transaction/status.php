@@ -2,7 +2,7 @@
 
 $id = intval(getInput('id'));
 
-$Edit_trans = $db->fetchID("transaction", $id);
+$Edit_trans = $db->findByID("transaction", $id);
 if (empty($Edit_trans)) {
     # code...
     $_SESSION['error'] = "Dữ liệu không tồn tại";
@@ -27,7 +27,7 @@ if ($update > 0) {
     foreach ($order as $item) {
         # code...
         $idproduct = intval($item['product_id']);
-        $product = $db->fetchID("product", $idproduct);
+        $product = $db->findByID("product", $idproduct);
 
         $nb = $product['number'] - $item['number'];
 

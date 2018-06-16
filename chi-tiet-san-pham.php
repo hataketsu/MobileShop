@@ -4,7 +4,7 @@
 $id = intval(getInput('id'));
 
 
-$product = $db->fetchID("product", $id);
+$product = $db->findByID("product", $id);
 
 $cateid = intval($product['category_id']);
 
@@ -51,7 +51,7 @@ $spkemtheo = $db->fetchsql($sql);
                 <?php else : ?>
                     <li><b><?php echo formatPrice($product['price']) ?>đ</b></li>
                 <?php endif ?>
-                <li><a href="" class="btn btn-default"> <i class="fa fa-shopping-basket"></i>Add TO Cart</a></li>
+                <li><a href="add_to_cart.php?id=<?=$product['id']?>" class="btn btn-default"> <i class="fa fa-shopping-basket"></i>Thêm vào giỏ hàng </a></li>
             </ul>
         </div>
 
@@ -62,30 +62,17 @@ $spkemtheo = $db->fetchsql($sql);
 
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#home">Mô tả sản phẩm </a></li>
-                <li><a data-toggle="tab" href="#menu1">Thông tin khác </a></li>
-                <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
-                <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+                <li><a data-toggle="tab" href="#menu1 ">Bình luận</a></li>
             </ul>
             <div class="tab-content">
                 <div id="home" class="tab-pane fade in active">
-                    <h3>Nội dung</h3>
                     <p><?php echo $product['content'] ?></p>
                 </div>
                 <div id="menu1" class="tab-pane fade">
-                    <h3> Thông tin khác </h3>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.</p>
+                    <div class="fb-comments" data-href="http://banhang.test/<?= 4 ?>" data-width="800"
+                         data-numposts="5"></div>
                 </div>
-                <div id="menu2" class="tab-pane fade">
-                    <h3>Menu 2</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                        totam rem aperiam.</p>
-                </div>
-                <div id="menu3" class="tab-pane fade">
-                    <h3>Menu 3</h3>
-                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                        explicabo.</p>
-                </div>
+
             </div>
         </div>
     </div>

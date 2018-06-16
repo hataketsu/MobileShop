@@ -23,7 +23,7 @@ if (isset($user['page'])) {
 
 ?>
 <?php require_once __DIR__ . "/../../layouts/header.php"; ?>
-<div class="content-wrapper">
+    <div class="content-wrapper">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">

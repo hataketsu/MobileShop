@@ -3,7 +3,7 @@ $open = "category";
 
 $id = intval(getInput('id'));
 
-$EditCategory = $db->fetchID("category", $id);
+$EditCategory = $db->findByID("category", $id);
 if (empty($EditCategory)) {
     # code...
     $_SESSION['error'] = "Dữ liệu không tồn tại";
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 <?php require_once __DIR__ . "/../../layouts/header.php" ?>
-<div class="content-wrapper">
+    <div class="content-wrapper">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">

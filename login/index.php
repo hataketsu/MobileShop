@@ -2,7 +2,6 @@
 session_start();
 require_once __DIR__ . "/../libraries/database.php";
 require_once __DIR__ . "/../libraries/function.php";
-$db = new Database;
 $error = [];
 $data =
     [
@@ -23,46 +22,27 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     //print_r($error);
     if (empty($error)) {
-        # code...
-        echo 'db';
         $check = $db->fetchOne("admin", " email='" . $data['email'] . "' and password='" . $data['password'] . "' ");
 
         if ($check != null) {
             # code...
             $_SESSION['admin_name'] = $check['name'];
             $_SESSION['admin_id'] = $check['id'];
-            echo "<script>alert('Đăng nhập thành công');location.href='<?php echo BASE_URL;?>/admin/'</script>";
+            echo "<script>alert('Đăng nhập thành công');location.href='" . base_url() . "/admin/'</script>";
 
         } else {
             # code...
             $_SESSION['error'] = " Đăng nhập thất bại";
         }
-
     }
 
 }
-
-
 ?>
-
-
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<!--
-    you can substitue the span of reauth email for a input with the email and
-    include the remember me checkbox
--->
 <style type="text/css">
 
-    /*
-* Specific styles of signin component
-*/
-    /*
-     * General styles
-     */
     body, html {
         height: 100%;
         background-repeat: no-repeat;
@@ -203,7 +183,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 <div class="container">
     <div class="card card-container">
-        <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
         <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"/>
         <p id="profile-name" class="profile-name-card"></p>
         <form class="form-signin" action="" method="POST">
@@ -222,5 +201,5 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <a href="#" class="forgot-password">
             Forgot the password?
         </a>
-    </div><!-- /card-container -->
-</div><!-- /container -->
+    </div>
+</div>

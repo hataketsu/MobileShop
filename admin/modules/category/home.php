@@ -4,7 +4,7 @@
 $open = "category";
 require_once __DIR__ . "/../../autoload/autoload.php";
 $id = intval(getInput('id'));
-$EditCategory = $db->fetchID("category", $id);
+$EditCategory = $db->findByID("category", $id);
 if (empty($EditCategory)) {
     # code...
     $_SESSION['error'] = "Dữ liệu không tồn tại";

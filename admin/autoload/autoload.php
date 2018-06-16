@@ -6,10 +6,10 @@ $db = new Database;
 
 if (!isset($_SESSION['admin_id'])) {
     # code...
-    header("location:/v/login/");
+    header("location:" . base_url() . "/login/");
 }
 
-define("ROOT", $_SERVER['DOCUMENT_ROOT'] . "/v/public/uploads/");
+define("ROOT", base_url() . "/public/uploads/");
 
 ?>
 

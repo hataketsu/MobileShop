@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($error)) {
         # code...
-        $check = $db->fetchOne("users", " email='" . $data['email'] . "' and password='" . $data['password'] . "' ");
+        $check = $db->fetchOne("users", " email='" . $data['email'] . "' and password='" . md5($data['password']) . "' ");
 
         if ($check != null) {
             # code...

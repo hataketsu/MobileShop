@@ -121,7 +121,7 @@
 </div>
 </div>
 </div>
-<script src="<?php echo base_url() ?>frontend/js/slick.min.js"></script>
+<script src="<?php echo base_url() ?>public/frontend/js/slick.min.js"></script>
 
 </body>
 
@@ -136,7 +136,7 @@
         }, function () {
             $hidenitem.hide(500);
         })
-    })
+    });
 
 
     $(function () {
@@ -152,10 +152,12 @@
                 data: {'number': $str.val(), 'key': $key},
                 success: function (data) {
                     // console.log(data);
-                    if (data == 1) {
+                    if (data.trim() === 'done') {
                         alert("Cập nhật giỏ hàng thành công");
-                        location.href = 'gio-hang.php';
+                    } else if (data.trim() === 'over') {
+                        alert("Kho hàng không đủ!!");
                     }
+                    location.href = 'gio-hang.php';
                 }
             });
         })

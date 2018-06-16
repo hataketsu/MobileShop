@@ -4,7 +4,7 @@ $open = "category";
 
 $id = intval(getInput('id'));
 
-$Editproduct = $db->fetchID("product", $id);
+$Editproduct = $db->findByID("product", $id);
 if (empty($Editproduct)) {
     # code...
     $_SESSION['error'] = "Dữ liệu không tồn tại";
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 <?php require_once __DIR__ . "/../../layouts/header.php" ?>
-<div class="content-wrapper">
+    <div class="content-wrapper">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">

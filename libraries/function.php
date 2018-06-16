@@ -6,7 +6,6 @@ include 'config.php';
  **/
 function _debug($data)
 {
-
     echo '<pre style="background: #000; color: #fff; width: 100%; overflow: auto">';
     echo '<div>Your IP: ' . $_SERVER['REMOTE_ADDR'] . '</div>';
 
@@ -100,7 +99,6 @@ function postInput($string)
 
 function base_url()
 {
-    // return $url  = "http://codedoan.com/";
     return $url = BASE_URL;
 }
 

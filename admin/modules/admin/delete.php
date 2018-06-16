@@ -4,7 +4,7 @@ $open = "category";
 
 $id = intval(getInput('id'));
 
-$deleteadmin = $db->fetchID("admin", $id);
+$deleteadmin = $db->findByID("admin", $id);
 if (empty($deleteadmin)) {
     # code...
     $_SESSION['error'] = "Dữ liệu không tồn tại";

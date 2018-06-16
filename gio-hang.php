@@ -11,8 +11,6 @@ if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
 
 <?php require_once __DIR__ . "/layouts/header.php"; ?>
 <div class="col-md-9 bor">
-
-
     <section class="box-main1">
         <h3 class="title-main"><a href=""> Giỏ hàng của bạn</a></h3>
         <?php if (isset($_SESSION['success'])): ?>

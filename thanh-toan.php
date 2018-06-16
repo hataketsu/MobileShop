@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . "/autoload/autoload.php";
 
-$user = $db->fetchID("users", intval($_SESSION['name_id']));
+$user = $db->findByID("users", intval($_SESSION['name_id']));
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     # code...

@@ -5,7 +5,7 @@ require_once __DIR__ . "/../libraries/function.php";
 $db = new Database;
 
 define("ROOT", $_SERVER['DOCUMENT_ROOT'] . "/v/public/uploads/");
-$category = $db->fetchAll("category");
+$categories = $db->fetchAll("category");
 $sqlNew = " select * from product where 1 order by id desc limit 3 ";
 $productNew = $db->fetchsql($sqlNew);
 

@@ -1,5 +1,6 @@
 <?php
 include 'config.php';
+
 /**
  *
  */
@@ -129,7 +130,7 @@ class Database
         return $data;
     }
 
-    public function fetchID($table, $id)
+    public function findByID($table, $id)
     {
         $sql = "SELECT * FROM {$table} WHERE id = $id ";
         $result = mysqli_query($this->link, $sql) or die("Lỗi  truy vấn fetchID " . mysqli_error($this->link));
@@ -168,33 +169,27 @@ class Database
 
     public function fetchJones($table, $sql, $total = 1, $page, $row, $pagi = true)
     {
-
         $data = [];
 
         if ($pagi == true) {
-            $sotrang = ceil($total / $row);
+            $pageNumber = ceil($total / $row);
             $start = ($page - 1) * $row;
             $sql .= " LIMIT $start,$row ";
-            $data = ["page" => $sotrang];
-
-
+            $data = ["page" => $pageNumber];
             $result = mysqli_query($this->link, $sql) or die("Lỗi truy vấn fetchJone ---- " . mysqli_error($this->link));
         } else {
             $result = mysqli_query($this->link, $sql) or die("Lỗi truy vấn fetchJone ---- " . mysqli_error($this->link));
         }
-
         if ($result) {
             while ($num = mysqli_fetch_assoc($result)) {
                 $data[] = $num;
             }
         }
-
         return $data;
     }
 
     public function fetchJone($table, $sql, $page = 0, $row, $pagi = false)
     {
-
         $data = [];
         // _debug($sql);die;
         if ($pagi == true) {

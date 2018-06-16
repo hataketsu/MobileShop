@@ -4,7 +4,7 @@ $open = "category";
 
 $id = intval(getInput('id'));
 
-$Editproduct = $db->fetchID("product", $id);
+$Editproduct = $db->findByID("product", $id);
 if (empty($Editproduct)) {
     # code...
     $_SESSION['error'] = "Dữ liệu không tồn tại";
