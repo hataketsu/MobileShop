@@ -40,7 +40,7 @@
                     <span class="nav-link-text">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item <?= isset($open) && $open == 'category' ? active : '' ?>" data-toggle="tooltip"
+            <li class="nav-item <?= isset($open) && $open == 'category' ? 'active' : '' ?>" data-toggle="tooltip"
                 data-placement="right" title="Charts"
             >
                 <a class="nav-link" href="<?= modules("category") ?>">
@@ -48,7 +48,7 @@
                     <span class="nav-link-text">Danh mục sản phẩm</span>
                 </a>
             </li>
-            <li class="nav-item <?= isset($open) && $open == 'product' ? active : '' ?>" data-toggle="tooltip"
+            <li class="nav-item <?= isset($open) && $open == 'product' ? 'active' : '' ?>" data-toggle="tooltip"
                 data-placement="right" title="Charts"
             >
                 <a class="nav-link" href="<?= modules("product") ?>">
@@ -57,7 +57,7 @@
                 </a>
             </li>
 
-            <li class="nav-item <?= isset($open) && $open == 'admin' ? active : '' ?>" data-toggle="tooltip"
+            <li class="nav-item <?= isset($open) && $open == 'admin' ? 'active' : '' ?>" data-toggle="tooltip"
                 data-placement="right" title="Charts"
             >
                 <a class="nav-link" href="<?= modules("admin") ?>">
@@ -66,7 +66,7 @@
                 </a>
             </li>
 
-            <li class="nav-item <?= isset($open) && $open == 'user' ? active : '' ?>" data-toggle="tooltip"
+            <li class="nav-item <?= isset($open) && $open == 'user' ? 'active ' : '' ?>" data-toggle="tooltip"
                 data-placement="right" title="Charts"
             >
                 <a class="nav-link" href="<?= modules("user") ?>">
@@ -75,7 +75,7 @@
                 </a>
             </li>
 
-            <li class="nav-item <?= isset($open) && $open == 'transaction' ? active : '' ?>"
+            <li class="nav-item <?= isset($open) && $open == 'transaction' ? 'active ' : '' ?>"
                 data-toggle="tooltip" data-placement="right" title="Charts"
             >
                 <a class="nav-link" href="<?= modules("transaction") ?>">

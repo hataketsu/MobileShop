@@ -5,19 +5,18 @@ $open = "product";
 
 if (isset($_GET['page'])) {
     # code...
-    $p = $_GET['page'];
+    $page = $_GET['page'];
 } else {
-    $p = 1;
+    $page = 1;
 }
 
 $sql = "select product.*,category.name as namecate from product left join category on category.id=product.category_id";
 
-$product = $db->fetchJone('product', $sql, $p, 4, true);
+$products = $db->fetchJone('product', $sql, $page, 4, true);
 
-if (isset($product['page'])) {
-    # code...
-    $sotrang = $product['page'];
-    unset($product['page']);
+if (isset($products['page'])) {
+    $sotrang = $products['page'];
+    unset($products['page']);
 }
 
 
@@ -49,7 +48,7 @@ if (isset($product['page'])) {
             <?php endif; ?>
 
         </div>
-        <a href="add.php" class="btn btn-success">Thêm</a>
+        <a href="add.php" class="btn btn-success" style="margin-bottom: 20px">Thêm</a>
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
@@ -58,53 +57,23 @@ if (isset($product['page'])) {
                                role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                             <thead>
                             <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Name: activate to sort column descending" style="width: 60px;"
-                                    aria-sort="ascending">STT
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Position: activate to sort column ascending" style="width: 130px;">Name
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Position: activate to sort column ascending" style="width: 130px;">
-                                    Category
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Office: activate to sort column ascending" style="width: 60px;">Slug
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Office: activate to sort column ascending" style="width: 60px;">Image
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Office: activate to sort column ascending" style="width: 60px;">Info
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Age: activate to sort column ascending" style="width: 30px;">Action
-                                </th>
-
+                                <th>STT</th>
+                                <th>Tên</th>
+                                <th>Danh mục</th>
+                                <th>Hình ảnh</th>
+                                <th>Thông tin</th>
+                                <th>Hành động</th>
                             </tr>
                             </thead>
-                            <!--            <tfoot>
-                                           <tr>
-                                               <th rowspan="1" colspan="1">STT</th>
-                                               <th rowspan="1" colspan="1">Name</th>
-                                                <th rowspan="1" colspan="1">Category</th>
-                                               <th rowspan="1" colspan="1">Slug</th>
-                                               <th rowspan="1" colspan="1">Image</th>
-                                               <th rowspan="1" colspan="1">Info</th>
-                                               <th rowspan="1" colspan="1">Action</th>
-
-
-                                           </tr>
-                                       </tfoot> -->
                             <tbody>
                             <?php $stt = 1;
-                            foreach ($product as $item): ?>
+                            foreach ($products as $index => $item) { ?>
                                 <tr role="row" class="odd">
-                                    <td class="sorting_1"><?= $stt ?></td>
-                                    <td><?= $item['name'] ?></td>
+                                    <td class="sorting_1"><?= $index+1 ?></td>
+                                    <td>
+                                        <a href="../../../chi-tiet-san-pham.php?id=<?= $item['id'] ?>"><?= $item['name'] ?></a>
+                                    </td>
                                     <td><?= $item['namecate'] ?></td>
-                                    <td><?= $item['slug'] ?></td>
                                     <td><img src="<?= uploads() ?>product/<?= $item['image'] ?>"
                                              width="80px" height="80px"></td>
                                     <td>
@@ -121,30 +90,28 @@ if (isset($product['page'])) {
                                     </td>
 
                                 </tr>
-                                <?php $stt++; endforeach ?>
+                            <?php } ?>
 
 
                             </tbody>
                         </table>
                         <div class="pull-right">
-                            <nav aria-label="Page navigation example">
+                            <nav>
                                 <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Trước</a></li>
                                     <?php for ($i = 1; $i <= $sotrang; $i++) { ?>
                                         <?php
                                         if (isset($_GET['page'])) {
-                                            $p = $_GET['page'];
-                                            # code...
+                                            $page = $_GET['page'];
                                         } else {
-                                            $p = 1;
+                                            $page = 1;
                                         }
                                         ?>
-                                        <li class="page-item<?= ($i == $p) ? 'active' : '' ?>"><a
+                                        <li class="page-item<?= ($i == $page) ? 'active' : '' ?>"><a
                                                     class="page-link"
                                                     href="?page=<?= $i; ?>"><?= $i; ?></a></li>
-
                                     <?php } ?>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Tiếp</a></li>
                                 </ul>
                             </nav>
                         </div>
