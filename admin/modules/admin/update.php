@@ -112,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="clearfix">
             <?php if (isset($_SESSION['error'])) : ?>
                 <div class="alert alert-danger">
-                    <?php echo $_SESSION['error'];
+                    <?= $_SESSION['error'];
                     unset ($_SESSION['error']) ?>
                 </div>
             <?php endif; ?>
@@ -128,9 +128,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-group">
                         <label for="exampleInputEmail1">Họ và tên</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                               placeholder="họ tên" name="name" value="<?php echo $Editadmin['name'] ?>">
+                               placeholder="họ tên" name="name" value="<?= $Editadmin['name'] ?>">
                         <?php if (isset($error['name'])): ?>
-                            <p class="text-danger"> <?php echo $error['name']; ?></p>
+                            <p class="text-danger"> <?= $error['name']; ?></p>
 
 
                         <?php endif ?>
@@ -142,9 +142,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label for="exampleInputEmail1">Email</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                                placeholder="maiquangtu1396@gmail.com" name="email"
-                               value="<?php echo $Editadmin['email'] ?>">
+                               value="<?= $Editadmin['email'] ?>">
                         <?php if (isset($error['email'])): ?>
-                            <p class="text-danger"> <?php echo $error['email']; ?></p>
+                            <p class="text-danger"> <?= $error['email']; ?></p>
 
 
                         <?php endif ?>
@@ -155,9 +155,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-group">
                         <label for="exampleInputEmail1">Số điện thoại</label>
                         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                               placeholder="" name="phone" value="<?php echo $Editadmin['phone'] ?>">
+                               placeholder="" name="phone" value="<?= $Editadmin['phone'] ?>">
                         <?php if (isset($error['phone'])): ?>
-                            <p class="text-danger"> <?php echo $error['phone']; ?></p>
+                            <p class="text-danger"> <?= $error['phone']; ?></p>
 
 
                         <?php endif ?>
@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                                placeholder="" name="password">
                         <?php if (isset($error['password'])): ?>
-                            <p class="text-danger"> <?php echo $error['password']; ?></p>
+                            <p class="text-danger"> <?= $error['password']; ?></p>
 
 
                         <?php endif ?>
@@ -183,7 +183,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                                placeholder="" name="re_password">
                         <?php if (isset($error['re_password'])): ?>
-                            <p class="text-danger"> <?php echo $error['re_password']; ?></p>
+                            <p class="text-danger"> <?= $error['re_password']; ?></p>
 
 
                         <?php endif ?>
@@ -194,9 +194,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-group">
                         <label for="exampleInputEmail1">Địa chỉ</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                               placeholder="" name="address" value="<?php echo $Editadmin['address'] ?>">
+                               placeholder="" name="address" value="<?= $Editadmin['address'] ?>">
                         <?php if (isset($error['address'])): ?>
-                            <p class="text-danger"> <?php echo $error['address']; ?></p>
+                            <p class="text-danger"> <?= $error['address']; ?></p>
 
 
                         <?php endif ?>
@@ -206,15 +206,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-group">
                         <label for="exampleInputEmail1">Level</label>
                         <select class="form-control" name="level">
-                            <option value="1" <?php echo isset($Editadmin['level']) && $Editadmin['level'] == 1 ? "selected='selected'" : '' ?>>
+                            <option value="1" <?= isset($Editadmin['level']) && $Editadmin['level'] == 1 ? "selected='selected'" : '' ?>>
                                 CTV
                             </option>
-                            <option value="2" <?php echo isset($Editadmin['level']) && $Editadmin['level'] == 2 ? "selected='selected'" : '' ?>>
+                            <option value="2" <?= isset($Editadmin['level']) && $Editadmin['level'] == 2 ? "selected='selected'" : '' ?>>
                                 Admin
                             </option>
                         </select>
                         <?php if (isset($error['level'])): ?>
-                            <p class="text-danger"> <?php echo $error['level']; ?></p>
+                            <p class="text-danger"> <?= $error['level']; ?></p>
 
 
                         <?php endif ?>

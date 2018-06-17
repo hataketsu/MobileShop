@@ -109,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="clearfix">
             <?php if (isset($_SESSION['error'])) : ?>
                 <div class="alert alert-danger">
-                    <?php echo $_SESSION['error'];
+                    <?= $_SESSION['error'];
                     unset ($_SESSION['error']) ?>
                 </div>
             <?php endif; ?>
@@ -125,14 +125,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <select class="form-control col-md-8" name="category_id">
                             <option>-Mời bạn chọn danh mục sản phẩm-</option>
                             <?php foreach ($category as $item): ?>
-                                <option value="<?php echo $item['id'] ?>" <?php
+                                <option value="<?= $item['id'] ?>" <?php
                                 echo $Editproduct['category_id'] == $item['id'] ?
                                     "selected = 'selected'" : '' ?>><?php echo
                                     $item['name'] ?></option>
                             <?php endforeach ?>
                         </select>
                         <?php if (isset($error['category'])): ?>
-                            <p class="text-danger"> <?php echo $error['category']; ?></p>
+                            <p class="text-danger"> <?= $error['category']; ?></p>
 
 
                         <?php endif ?>
@@ -143,9 +143,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-group">
                         <label for="exampleInputEmail1">Tên sản phẩm</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                               placeholder="sản phẩm" name="name" value="<?php echo $Editproduct['name'] ?>">
+                               placeholder="sản phẩm" name="name" value="<?= $Editproduct['name'] ?>">
                         <?php if (isset($error['name'])): ?>
-                            <p class="text-danger"> <?php echo $error['name']; ?></p>
+                            <p class="text-danger"> <?= $error['name']; ?></p>
 
 
                         <?php endif ?>
@@ -156,9 +156,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-group">
                         <label for="exampleInputEmail1">Giá sản phẩm</label>
                         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                               placeholder="giá" name="price" value="<?php echo $Editproduct['price'] ?>">
+                               placeholder="giá" name="price" value="<?= $Editproduct['price'] ?>">
                         <?php if (isset($error['price'])): ?>
-                            <p class="text-danger"> <?php echo $error['price']; ?></p>
+                            <p class="text-danger"> <?= $error['price']; ?></p>
 
 
                         <?php endif ?>
@@ -169,9 +169,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-group">
                         <label for="exampleInputEmail1">Số lượng</label>
                         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                               placeholder="số lượng" name="number" value="<?php echo $Editproduct['number'] ?>">
+                               placeholder="số lượng" name="number" value="<?= $Editproduct['number'] ?>">
                         <?php if (isset($error['number'])): ?>
-                            <p class="text-danger"> <?php echo $error['number']; ?></p>
+                            <p class="text-danger"> <?= $error['number']; ?></p>
 
 
                         <?php endif ?>
@@ -182,7 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-group">
                         <label for="exampleInputEmail1">Giảm giá</label>
                         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                               placeholder="sale" name="sale" value="<?php echo $Editproduct['sale'] ?>">
+                               placeholder="sale" name="sale" value="<?= $Editproduct['sale'] ?>">
 
 
                     </div>
@@ -192,20 +192,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                                name="image">
                         <?php if (isset($error['image'])): ?>
-                            <p class="text-danger"> <?php echo $error['image']; ?></p>
+                            <p class="text-danger"> <?= $error['image']; ?></p>
 
 
                         <?php endif ?>
-                        <img src="<?php echo uploads() ?>product/<?php echo $Editproduct['image'] ?>" width="50px"
+                        <img src="<?= uploads() ?>product/<?= $Editproduct['image'] ?>" width="50px"
                              height="50px">
                     </div>
 
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nội dung</label>
-                        <textarea class="form-control" name="content"><?php echo $Editproduct['content'] ?></textarea>
+                        <textarea class="form-control" name="content"><?= $Editproduct['content'] ?></textarea>
                         <?php if (isset($error['content'])): ?>
-                            <p class="text-danger"> <?php echo $error['content']; ?></p>
+                            <p class="text-danger"> <?= $error['content']; ?></p>
 
 
                         <?php endif ?>

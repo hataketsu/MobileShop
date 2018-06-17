@@ -14,7 +14,7 @@ unset($_SESSION['total']);
 
         <?php if (isset($_SESSION['success'])): ?>
             <div class="alert alert-success">
-                <strong>Success!</strong><?php echo $_SESSION['success'];
+                <strong>Success!</strong><?= $_SESSION['success'];
                 unset($_SESSION['success']) ?>
             </div>
         <?php endif ?>

@@ -21,6 +21,4 @@ $category = $db->fetchAll("category");
             </div>
         </div>
     </div>
-    <!-- /.container-fluid-->
-    <!-- /.content-wrapper-->
 <?php require_once __DIR__ . "/layouts/footer.php"; ?>

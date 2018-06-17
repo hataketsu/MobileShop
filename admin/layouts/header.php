@@ -8,11 +8,11 @@
     <meta name="author" content="">
     <title>Trang Admin</title>
     <!-- Bootstrap core CSS-->
-    <link href="<?php echo base_url() ?>public/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>public/admin/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template-->
-    <link href="<?php echo base_url() ?>public/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<?= base_url() ?>public/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template-->
-    <link href="<?php echo base_url() ?>public/admin/css/sb-admin.css" rel="stylesheet">
+    <link href="<?= base_url() ?>public/admin/css/sb-admin.css" rel="stylesheet">
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 <div id="fb-root"></div>
@@ -26,7 +26,7 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Xin chào <?php echo $_SESSION['admin_name'] ?></a>
+    <a class="navbar-brand" href="index.html">Xin chào <?= $_SESSION['admin_name'] ?></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -35,50 +35,50 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="<?php echo base_url() ?>admin">
+                <a class="nav-link" href="<?= base_url() ?>admin">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item <?php echo isset($open) && $open == 'category' ? active : '' ?>" data-toggle="tooltip"
+            <li class="nav-item <?= isset($open) && $open == 'category' ? active : '' ?>" data-toggle="tooltip"
                 data-placement="right" title="Charts"
             >
-                <a class="nav-link" href="<?php echo modules("category") ?>">
+                <a class="nav-link" href="<?= modules("category") ?>">
                     <i class="fa fa-fw fa-area-chart"></i>
                     <span class="nav-link-text">Danh mục sản phẩm</span>
                 </a>
             </li>
-            <li class="nav-item <?php echo isset($open) && $open == 'product' ? active : '' ?>" data-toggle="tooltip"
+            <li class="nav-item <?= isset($open) && $open == 'product' ? active : '' ?>" data-toggle="tooltip"
                 data-placement="right" title="Charts"
             >
-                <a class="nav-link" href="<?php echo modules("product") ?>">
+                <a class="nav-link" href="<?= modules("product") ?>">
                     <i class="fa fa-fw fa-table"></i>
                     <span class="nav-link-text">Sản phẩm </span>
                 </a>
             </li>
 
-            <li class="nav-item <?php echo isset($open) && $open == 'admin' ? active : '' ?>" data-toggle="tooltip"
+            <li class="nav-item <?= isset($open) && $open == 'admin' ? active : '' ?>" data-toggle="tooltip"
                 data-placement="right" title="Charts"
             >
-                <a class="nav-link" href="<?php echo modules("admin") ?>">
+                <a class="nav-link" href="<?= modules("admin") ?>">
                     <i class="fa fa-fw fa-table"></i>
                     <span class="nav-link-text">Admin </span>
                 </a>
             </li>
 
-            <li class="nav-item <?php echo isset($open) && $open == 'user' ? active : '' ?>" data-toggle="tooltip"
+            <li class="nav-item <?= isset($open) && $open == 'user' ? active : '' ?>" data-toggle="tooltip"
                 data-placement="right" title="Charts"
             >
-                <a class="nav-link" href="<?php echo modules("user") ?>">
+                <a class="nav-link" href="<?= modules("user") ?>">
                     <i class="fa fa-fw fa-table"></i>
                     <span class="nav-link-text">Thành viên </span>
                 </a>
             </li>
 
-            <li class="nav-item <?php echo isset($open) && $open == 'transaction' ? active : '' ?>"
+            <li class="nav-item <?= isset($open) && $open == 'transaction' ? active : '' ?>"
                 data-toggle="tooltip" data-placement="right" title="Charts"
             >
-                <a class="nav-link" href="<?php echo modules("transaction") ?>">
+                <a class="nav-link" href="<?= modules("transaction") ?>">
                     <i class="fa fa-fw fa-table"></i>
                     <span class="nav-link-text">Quản lý đơn hàng </span>
                 </a>

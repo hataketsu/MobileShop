@@ -60,9 +60,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="form-group">
                         <label for="exampleInputEmail1">Tên danh mục</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                               placeholder="danh mục" name="name" value="<?php echo $EditCategory['name'] ?>">
+                               placeholder="danh mục" name="name" value="<?= $EditCategory['name'] ?>">
                         <?php if (isset($error['name'])): ?>
-                            <p class="text-danger"> <?php echo $error['name']; ?></p>
+                            <p class="text-danger"> <?= $error['name']; ?></p>
 
 
                         <?php endif ?>

@@ -1,13 +1,13 @@
 </div>
 <div class="container">
     <div class="col-md-4 bottom-content">
-        <a href=""><img src="<?php echo base_url() ?>public/frontend/images/free-shipping.png"></a>
+        <a href=""><img src="<?= base_url() ?>public/frontend/images/free-shipping.png"></a>
     </div>
     <div class="col-md-4 bottom-content">
-        <a href=""><img src="<?php echo base_url() ?>public/frontend/images/guaranteed.png"></a>
+        <a href=""><img src="<?= base_url() ?>public/frontend/images/guaranteed.png"></a>
     </div>
     <div class="col-md-4 bottom-content">
-        <a href=""><img src="<?php echo base_url() ?>public/frontend/images/deal.png"></a>
+        <a href=""><img src="<?= base_url() ?>public/frontend/images/deal.png"></a>
     </div>
 </div>
 <div class="container-pluid">
@@ -121,7 +121,7 @@
 </div>
 </div>
 </div>
-<script src="<?php echo base_url() ?>public/frontend/js/slick.min.js"></script>
+<script src="<?= base_url() ?>public/frontend/js/slick.min.js"></script>
 
 </body>
 

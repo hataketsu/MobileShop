@@ -3,16 +3,16 @@
 <head>
     <title>Web bán hàng</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/frontend/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/frontend/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>public/frontend/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>public/frontend/css/bootstrap.min.css">
 
-    <script src="<?php echo base_url() ?>public/frontend/js/jquery-3.2.1.min.js"></script>
-    <script src="<?php echo base_url() ?>public/frontend/js/bootstrap.min.js"></script>
+    <script src="<?= base_url() ?>public/frontend/js/jquery-3.2.1.min.js"></script>
+    <script src="<?= base_url() ?>public/frontend/js/bootstrap.min.js"></script>
     <!---->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/frontend/css/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/frontend/css/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>public/frontend/css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>public/frontend/css/slick-theme.css"/>
     <!--slide-->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/frontend/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>public/frontend/css/style.css">
 
 </head>
 <body>
@@ -41,7 +41,7 @@
                         <nav id="header-nav-top">
                             <ul class="list-inline pull-right" id="headermenu">
                                 <?php if (isset($_SESSION['name_user'])): ?>
-                                    <li>Xin chào : <?php echo $_SESSION['name_user'] ?></li>
+                                    <li>Xin chào : <?= $_SESSION['name_user'] ?></li>
                                     <li>
                                         <a href=""><i class="fa fa-user"></i> Tài khoản <i class="fa fa-caret-down"></i></a>
                                         <ul id="header-submenu">
@@ -71,10 +71,10 @@
                         <div class="form-group">
                             <label>
                                 <select name="category" class="form-control">
-                                    <option value="-1"> Tất cả danh mục </option>
+                                    <option value="-1"> Tất cả danh mục</option>
                                     <?php foreach ($categories as $item): ?>
-                                        <option value="<?=$item['id'] ?>">
-                                            <?=$item['name'] ?>
+                                        <option value="<?= $item['id'] ?>">
+                                            <?= $item['name'] ?>
                                         </option>
                                     <?php endforeach ?>
                                 </select>
@@ -85,8 +85,8 @@
                     </form>
                 </div>
                 <div class="col-md-4">
-                    <a href="<?php echo base_url() ?>">
-                        <img src="<?php echo base_url() ?>public/frontend/images/logo-default.png">
+                    <a href="<?= base_url() ?>">
+                        <img src="<?= base_url() ?>public/frontend/images/logo-default.png">
                     </a>
                 </div>
                 <div class="col-md-3" id="header-right">
@@ -111,7 +111,7 @@
         <div class="container">
             <nav>
                 <div class="home pull-left">
-                    <a href="<?php echo base_url() ?>">Trang chủ</a>
+                    <a href="<?= base_url() ?>">Trang chủ</a>
                 </div>
                 <!--menu main-->
                 <ul id="menu-main">
@@ -155,7 +155,7 @@
                     <ul>
                         <?php foreach ($categories as $item): ?>
                             <li>
-                                <a href="danh-muc-san-pham.php?id=<?=$item['id'] ?>"><?=$item['name'] ?></a>
+                                <a href="danh-muc-san-pham.php?id=<?= $item['id'] ?>"><?= $item['name'] ?></a>
                             </li>
                         <?php endforeach ?>
 

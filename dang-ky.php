@@ -93,9 +93,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label class="col-md-2 col-md-offset-1">Tên thành viên</label>
                 <div class="col-md-8">
                     <input type="text" name="name" placeholder="mai quang tú" class="form-control"
-                           value="<?php echo $data['name'] ?>">
+                           value="<?= $data['name'] ?>">
                     <?php if (isset($error['name'])): ?>
-                        <p class="text-danger"><?php echo $error['name'] ?></p>
+                        <p class="text-danger"><?= $error['name'] ?></p>
 
                     <?php endif ?>
                 </div>
@@ -105,9 +105,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label class="col-md-2 col-md-offset-1">Email</label>
                 <div class="col-md-8">
                     <input type="email" name="email" placeholder="maiquangtu1396@gmail.com" class="form-control"
-                           value="<?php echo $data['email'] ?>">
+                           value="<?= $data['email'] ?>">
                     <?php if (isset($error['email'])): ?>
-                        <p class="text-danger"><?php echo $error['email'] ?></p>
+                        <p class="text-danger"><?= $error['email'] ?></p>
 
                     <?php endif ?>
                 </div>
@@ -117,9 +117,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label class="col-md-2 col-md-offset-1">Mật khẩu</label>
                 <div class="col-md-8">
                     <input type="password" name="password" placeholder="******" class="form-control"
-                           value="<?php echo $data['password'] ?>">
+                           value="<?= $data['password'] ?>">
                     <?php if (isset($error['password'])): ?>
-                        <p class="text-danger"><?php echo $error['password'] ?></p>
+                        <p class="text-danger"><?= $error['password'] ?></p>
 
                     <?php endif ?>
                 </div>
@@ -130,9 +130,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label class="col-md-2 col-md-offset-1">Số điện thoại</label>
                 <div class="col-md-8">
                     <input type="number" name="phone" placeholder="01654073549" class="form-control"
-                           value="<?php echo $data['phone'] ?>">
+                           value="<?= $data['phone'] ?>">
                     <?php if (isset($error['phone'])): ?>
-                        <p class="text-danger"><?php echo $error['phone'] ?></p>
+                        <p class="text-danger"><?= $error['phone'] ?></p>
 
                     <?php endif ?>
                 </div>
@@ -142,9 +142,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label class="col-md-2 col-md-offset-1">Địa chỉ</label>
                 <div class="col-md-8">
                     <input type="text" name="address" placeholder="hà nội" class="form-control"
-                           value="<?php echo $data['address'] ?>">
+                           value="<?= $data['address'] ?>">
                     <?php if (isset($error['address'])): ?>
-                        <p class="text-danger"><?php echo $error['address'] ?></p>
+                        <p class="text-danger"><?= $error['address'] ?></p>
 
                     <?php endif ?>
                 </div>

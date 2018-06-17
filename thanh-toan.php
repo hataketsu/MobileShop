@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label class="col-md-2 col-md-offset-1">Tên thành viên</label>
                 <div class="col-md-8">
                     <input type="text" readonly="" name="name" placeholder="mai quang tú" class="form-control"
-                           value="<?php echo $user['name'] ?>">
+                           value="<?= $user['name'] ?>">
 
                 </div>
             </div>
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label class="col-md-2 col-md-offset-1">Email</label>
                 <div class="col-md-8">
                     <input type="email" readonly="" name="email" placeholder="maiquangtu1396@gmail.com"
-                           class="form-control" value="<?php echo $user['email'] ?>">
+                           class="form-control" value="<?= $user['email'] ?>">
 
                 </div>
             </div>
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label class="col-md-2 col-md-offset-1">Số điện thoại</label>
                 <div class="col-md-8">
                     <input type="number" readonly="" name="phone" placeholder="01654073549" class="form-control"
-                           value="<?php echo $user['phone'] ?>">
+                           value="<?= $user['phone'] ?>">
 
                 </div>
             </div>
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label class="col-md-2 col-md-offset-1">Địa chỉ</label>
                 <div class="col-md-8">
                     <input type="text" readonly="" name="address" placeholder="hà nội" class="form-control"
-                           value="<?php echo $user['address'] ?>">
+                           value="<?= $user['address'] ?>">
 
                 </div>
             </div>
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label class="col-md-2 col-md-offset-1">Số tiền</label>
                 <div class="col-md-8">
                     <input type="text" readonly="" name="address" placeholder="" class="form-control"
-                           value="<?php echo formatPrice($_SESSION['total']) ?>">
+                           value="<?= formatPrice($_SESSION['total']) ?>">
 
                 </div>
             </div>

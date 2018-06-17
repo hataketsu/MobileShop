@@ -1,16 +1,19 @@
 <?php
+
 session_start();
 require_once __DIR__ . "/../libraries/database.php";
 require_once __DIR__ . "/../libraries/function.php";
+$db = new Database;
+
 $error = [];
 $data =
     [
         'email' => postInput("email"),
         'password' => md5(postInput("password"))
     ];
-//print_r($data);
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
     # code...
     if ($data['email'] == '') {
         $error['email'] = "Bạn vui lòng điền email";
@@ -19,16 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($data['password'] == '') {
         $error['password'] = "Bạn vui lòng điền mật khẩu";
     }
-
-    //print_r($error);
     if (empty($error)) {
-        $check = $db->fetchOne("admin", " email='" . $data['email'] . "' and password='" . $data['password'] . "' ");
+        $check = $db->fetchOne("admin", " email = '" . $data['email'] . "' and password = '" . $data['password'] . "' ");
 
         if ($check != null) {
             # code...
             $_SESSION['admin_name'] = $check['name'];
             $_SESSION['admin_id'] = $check['id'];
-            echo "<script>alert('Đăng nhập thành công');location.href='" . base_url() . "/admin/'</script>";
+            echo "<script>alert('Đăng nhập thành công');location.href='" . base_url() . "admin/'</script>";
 
         } else {
             # code...
@@ -38,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 }
 ?>
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -185,7 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <div class="card card-container">
         <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"/>
         <p id="profile-name" class="profile-name-card"></p>
-        <form class="form-signin" action="" method="POST">
+        <form class="form-signin" method="POST">
             <span id="reauth-email" class="reauth-email"></span>
             <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required
                    autofocus>

@@ -36,14 +36,14 @@ if (isset($product['page'])) {
         <div class="clearfix">
             <?php if (isset($_SESSION['success'])) : ?>
                 <div class="alert alert-success">
-                    <?php echo $_SESSION['success'];
+                    <?= $_SESSION['success'];
                     unset ($_SESSION['success']) ?>
                 </div>
             <?php endif; ?>
 
             <?php if (isset($_SESSION['error'])) : ?>
                 <div class="alert alert-danger">
-                    <?php echo $_SESSION['error'];
+                    <?= $_SESSION['error'];
                     unset ($_SESSION['error']) ?>
                 </div>
             <?php endif; ?>
@@ -101,21 +101,21 @@ if (isset($product['page'])) {
                             <?php $stt = 1;
                             foreach ($product as $item): ?>
                                 <tr role="row" class="odd">
-                                    <td class="sorting_1"><?php echo $stt ?></td>
-                                    <td><?php echo $item['name'] ?></td>
-                                    <td><?php echo $item['namecate'] ?></td>
-                                    <td><?php echo $item['slug'] ?></td>
-                                    <td><img src="<?php echo uploads() ?>product/<?php echo $item['image'] ?>"
+                                    <td class="sorting_1"><?= $stt ?></td>
+                                    <td><?= $item['name'] ?></td>
+                                    <td><?= $item['namecate'] ?></td>
+                                    <td><?= $item['slug'] ?></td>
+                                    <td><img src="<?= uploads() ?>product/<?= $item['image'] ?>"
                                              width="80px" height="80px"></td>
                                     <td>
                                         <ul>
-                                            <li>Giá: <?php echo $item['price'] ?></li>
-                                            <li>Số lượng <?php echo $item['number'] ?></li>
+                                            <li>Giá: <?= $item['price'] ?></li>
+                                            <li>Số lượng <?= $item['number'] ?></li>
                                         </ul>
                                     </td>
-                                    <td><a class="btn btn-xs btn-info" href="update.php?id=<?php echo $item['id'] ?>">
+                                    <td><a class="btn btn-xs btn-info" href="update.php?id=<?= $item['id'] ?>">
                                             <i class="fa fa-edit"></i>Sửa</a>
-                                        <a class="btn btn-xs btn-danger" href="delete.php?id=<?php echo $item['id'] ?>">
+                                        <a class="btn btn-xs btn-danger" href="delete.php?id=<?= $item['id'] ?>">
                                             <i class="fa fa-times"></i>
                                             Xóa</a>
                                     </td>
@@ -139,9 +139,9 @@ if (isset($product['page'])) {
                                             $p = 1;
                                         }
                                         ?>
-                                        <li class="page-item<?php echo ($i == $p) ? 'active' : '' ?>"><a
+                                        <li class="page-item<?= ($i == $p) ? 'active' : '' ?>"><a
                                                     class="page-link"
-                                                    href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                                                    href="?page=<?= $i; ?>"><?= $i; ?></a></li>
 
                                     <?php } ?>
                                     <li class="page-item"><a class="page-link" href="#">Next</a></li>

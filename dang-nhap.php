@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h3 class="title-main"><a href="">Đăng nhập</a></h3>
         <?php if (isset($_SESSION['success'])): ?>
             <div class="alert alert-success">
-                <strong>Success!</strong><?php echo $_SESSION['success'];
+                <strong>Success!</strong><?= $_SESSION['success'];
                 unset($_SESSION['success']) ?>
             </div>
         <?php endif ?>
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <?php if (isset($_SESSION['error'])): ?>
             <div class="alert alert-danger">
-                <strong style="color: red">Fail!</strong><?php echo $_SESSION['error'];
+                <strong style="color: red">Fail!</strong><?= $_SESSION['error'];
                 unset($_SESSION['error']) ?>
             </div>
         <?php endif ?>
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="col-md-8">
                     <input type="email" name="email" placeholder="maiquangtu1396@gmail.com" class="form-control">
                     <?php if (isset($error['email'])): ?>
-                        <p class="text-danger"><?php echo $error['email'] ?></p>
+                        <p class="text-danger"><?= $error['email'] ?></p>
 
                     <?php endif ?>
                 </div>
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="col-md-8">
                     <input type="password" name="password" placeholder="******" class="form-control">
                     <?php if (isset($error['password'])): ?>
-                        <p class="text-danger"><?php echo $error['password'] ?></p>
+                        <p class="text-danger"><?= $error['password'] ?></p>
 
                     <?php endif ?>
                 </div>

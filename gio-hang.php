@@ -15,7 +15,7 @@ if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
         <h3 class="title-main"><a href=""> Giỏ hàng của bạn</a></h3>
         <?php if (isset($_SESSION['success'])): ?>
             <div class="alert alert-success">
-                <strong>Success!</strong><?php echo $_SESSION['success'];
+                <strong>Success!</strong><?= $_SESSION['success'];
                 unset($_SESSION['success']) ?>
             </div>
         <?php endif ?>
@@ -36,18 +36,20 @@ if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
             foreach ($_SESSION['cart'] as $key => $value): ?>
 
                 <tr>
-                    <td><?php echo $stt ?></td>
-                    <td><?php echo $value['name'] ?></td>
-                    <td><img src="<?php echo uploads() ?>product/<?php echo $value['image'] ?>" width="80px"
-                             height="80px"></td>
-                    <td><input type="number" name="number" value="<?php echo $value['number'] ?>"
-                               class="form-control nb" id="number<?php echo $key ?>" min=0></td>
-                    <td><?php echo formatPrice($value['price']) ?></td>
-                    <td><?php echo formatPrice($value['number'] * $value['price']) ?></td>
+                    <td><?= $stt ?></td>
+                    <td><a href="chi-tiet-san-pham.php?id=<?= $key ?>"><?= $value['name'] ?></a></td>
+                    <td><a href="chi-tiet-san-pham.php?id=<?= $key ?>"><img
+                                    src="<?= uploads() ?>product/<?= $value['image'] ?>" width="80px"
+                                    height="80px"></a></td>
+                    <td><p><input type="number" name="number" value="<?= $value['number'] ?>"
+                                  class="form-control nb" id="number<?= $key ?>" min=0></p>
+                        <p>Tối đa <?= $value['max'] ?> sản phẩm</p></td>
+                    <td><?= formatPrice($value['price']) ?></td>
+                    <td><?= formatPrice($value['number'] * $value['price']) ?></td>
                     <td>
-                        <a href="" class="btn btn-xs btn-info updatecart" data-key=<?php echo $key ?>><i
+                        <a href="" class="btn btn-xs btn-info updatecart" data-key=<?= $key ?>><i
                                     class="fa fa-refresh"></i>Sửa </a>
-                        <a href="remove.php?key=<?php echo $key ?>" class="btn btn-xs btn-danger"><i
+                        <a href="remove.php?key=<?= $key ?>" class="btn btn-xs btn-danger"><i
                                     class="fa fa-remove"></i>Xóa</a>
                     </td>
                 </tr>
@@ -63,14 +65,14 @@ if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
             <ul class="list-group">
                 <li class="list-group-item"><h3>Thông tin đơn hàng</h3></li>
                 <li class="list-group-item">
-                    <span class="badge"><?php echo formatPrice($_SESSION['tongtien']) ?></span>Số tiền
+                    <span class="badge"><?= formatPrice($_SESSION['tongtien']) ?></span>Số tiền
                 </li>
                 <li class="list-group-item">
                     <span class="badge">10%</span>
                     Thuế VAT
                 </li>
                 <li class="list-group-item">
-                    <span class="badge"><?php echo sale($_SESSION['tongtien']) ?>%</span>Giảm giá
+                    <span class="badge"><?= sale($_SESSION['tongtien']) ?>%</span>Giảm giá
                 </li>
 
                 <li class="list-group-item">

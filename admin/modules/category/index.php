@@ -17,14 +17,14 @@ $category = $db->fetchAll("category");
         <div class="clearfix">
             <?php if (isset($_SESSION['success'])) : ?>
                 <div class="alert alert-success">
-                    <?php echo $_SESSION['success'];
+                    <?= $_SESSION['success'];
                     unset ($_SESSION['success']) ?>
                 </div>
             <?php endif; ?>
 
             <?php if (isset($_SESSION['error'])) : ?>
                 <div class="alert alert-danger">
-                    <?php echo $_SESSION['error'];
+                    <?= $_SESSION['error'];
                     unset ($_SESSION['error']) ?>
                 </div>
             <?php endif; ?>
@@ -78,18 +78,18 @@ $category = $db->fetchAll("category");
                             <?php $stt = 1;
                             foreach ($category as $item): ?>
                                 <tr role="row" class="odd">
-                                    <td class="sorting_1"><?php echo $stt ?></td>
-                                    <td><?php echo $item['name'] ?></td>
+                                    <td class="sorting_1"><?= $stt ?></td>
+                                    <td><?= $item['name'] ?></td>
                                     <td>
-                                        <a href="home.php?id=<?php echo $item['id'] ?>" class="btn btn-xs
-                        <?php echo $item['home'] == 1 ? 'btn-info' : ' btn-default ' ?>    ">
-                                            <?php echo $item['home'] == 1 ? ' Hiển thị' : ' Không ' ?></a>
+                                        <a href="home.php?id=<?= $item['id'] ?>" class="btn btn-xs
+                        <?= $item['home'] == 1 ? 'btn-info' : ' btn-default ' ?>    ">
+                                            <?= $item['home'] == 1 ? ' Hiển thị' : ' Không ' ?></a>
                                     </td>
-                                    <td><?php echo $item['slug'] ?></td>
-                                    <td><?php echo $item['created_at'] ?></td>
-                                    <td><a class="btn btn-xs btn-info" href="update.php?id=<?php echo $item['id'] ?>">
+                                    <td><?= $item['slug'] ?></td>
+                                    <td><?= $item['created_at'] ?></td>
+                                    <td><a class="btn btn-xs btn-info" href="update.php?id=<?= $item['id'] ?>">
                                             <i class="fa fa-edit"></i>Sửa</a>
-                                        <a class="btn btn-xs btn-danger" href="delete.php?id=<?php echo $item['id'] ?>">
+                                        <a class="btn btn-xs btn-danger" href="delete.php?id=<?= $item['id'] ?>">
                                             <i class="fa fa-times"></i>
                                             Xóa</a>
                                     </td>

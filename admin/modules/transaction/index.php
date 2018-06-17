@@ -12,12 +12,12 @@ if (isset($_GET['page'])) {
 
 $sql = "select transaction.*,users.name as name_user,users.phone as phone_user from transaction left join users on users.id= transaction.users_id order by id desc ";
 
-$transaction = $db->fetchJone('transaction', $sql, $p, 4, true);
+$transactions = $db->fetchJone('transaction', $sql, $p, 4, true);
 
-if (isset($transaction['page'])) {
+if (isset($transactions['page'])) {
     # code...
-    $sotrang = $transaction['page'];
-    unset($transaction['page']);
+    $sotrang = $transactions['page'];
+    unset($transactions['page']);
 }
 
 
@@ -36,14 +36,14 @@ if (isset($transaction['page'])) {
         <div class="clearfix">
             <?php if (isset($_SESSION['success'])) : ?>
                 <div class="alert alert-success">
-                    <?php echo $_SESSION['success'];
+                    <?= $_SESSION['success'];
                     unset ($_SESSION['success']) ?>
                 </div>
             <?php endif; ?>
 
             <?php if (isset($_SESSION['error'])) : ?>
                 <div class="alert alert-danger">
-                    <?php echo $_SESSION['error'];
+                    <?= $_SESSION['error'];
                     unset ($_SESSION['error']) ?>
                 </div>
             <?php endif; ?>
@@ -85,7 +85,6 @@ if (isset($transaction['page'])) {
                                 <th rowspan="1" colspan="1">Name</th>
                                 <th rowspan="1" colspan="1">Phone</th>
                                 <th rowspan="1" colspan="1">Status</th>
-
                                 <th rowspan="1" colspan="1">Action</th>
 
 
@@ -93,20 +92,20 @@ if (isset($transaction['page'])) {
                             </tfoot>
                             <tbody>
                             <?php $stt = 1;
-                            foreach ($transaction as $item): ?>
+                            foreach ($transactions as $item): ?>
                                 <tr role="row" class="odd">
-                                    <td class="sorting_1"><?php echo $stt ?></td>
-                                    <td><?php echo $item['name_user'] ?></td>
-                                    <td><?php echo $item['phone_user'] ?></td>
+                                    <td class="sorting_1"><a href="show.php?id=<?= $item['id'] ?>"><?= $stt ?></a></td>
+                                    <td><?= $item['name_user'] ?></td>
+                                    <td><?= $item['phone_user'] ?></td>
                                     <td>
-                                        <a href="status.php?id=<?php echo $item['id'] ?>"
-                                           class="btn btn-xs <?php echo $item['status'] == 0 ? 'btn-danger' : 'btn-info' ?>"><?php echo $item['status'] == 0 ? 'chưa xử lý ' : 'đã xử lý' ?></a>
+                                        <a href="status.php?id=<?= $item['id'] ?>"
+                                           class="btn btn-xs <?= $item['status'] == 0 ? 'btn-danger' : 'btn-info' ?>"><?= $item['status'] == 0 ? 'chưa xử lý ' : 'đã xử lý' ?></a>
                                     </td>
 
 
-                                    <td><a class="btn btn-xs btn-info" href="update.php?id=<?php echo $item['id'] ?>">
+                                    <td><a class="btn btn-xs btn-info" href="update.php?id=<?= $item['id'] ?>">
                                             <i class="fa fa-edit"></i>Sửa</a>
-                                        <a class="btn btn-xs btn-danger" href="delete.php?id=<?php echo $item['id'] ?>">
+                                        <a class="btn btn-xs btn-danger" href="delete.php?id=<?= $item['id'] ?>">
                                             <i class="fa fa-times"></i>
                                             Xóa</a>
                                     </td>
@@ -130,8 +129,8 @@ if (isset($transaction['page'])) {
                                         $p = 1;
                                     }
                                     ?>
-                                    <li class="page-item<?php echo ($i == $p) ? 'active' : '' ?>"><a class="page-link"
-                                                                                                     href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                    <li class="page-item<?= ($i == $p) ? 'active' : '' ?>"><a class="page-link"
+                                                                                              href="?page=<?= $i; ?>"><?= $i; ?></a>
                                     </li>
 
                                     <li class="page-item"><a class="page-link" href="#">Next</a></li>

@@ -30,10 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 $_SESSION['error'] = "Them moi that bai";
             }
-
         }
-
-
     }
 }
 
@@ -51,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="clearfix">
             <?php if (isset($_SESSION['error'])) : ?>
                 <div class="alert alert-danger">
-                    <?php echo $_SESSION['error'];
+                    <?= $_SESSION['error'];
                     unset ($_SESSION['error']) ?>
                 </div>
             <?php endif; ?>
@@ -67,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                                placeholder="danh mục" name="name">
                         <?php if (isset($error['name'])): ?>
-                            <p class="text-danger"> <?php echo $error['name']; ?></p>
+                            <p class="text-danger"> <?= $error['name']; ?></p>
 
 
                         <?php endif ?>
