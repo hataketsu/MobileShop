@@ -1,25 +1,19 @@
 <?php
 require_once __DIR__ . "/../../autoload/autoload.php";
-$open = "category";
 
 $id = intval(getInput('id'));
 
-$Editproduct = $db->findByID("product", $id);
-if (empty($Editproduct)) {
-    # code...
-    $_SESSION['error'] = "Dữ liệu không tồn tại";
-    redirectAdmin("product");
+$product = $db->findByID("product", $id);
+
+if (empty($product)) {
+    echo "<script>alert('Dữ liệu không tồn tại');location.href='" . base_url() . "admin/modules/product'</script>";
 }
 
 $num = $db->delete("product", $id);
 if ($num > 0) {
-    # code...
-    $_SESSION['success'] = "xoa thanh cong";
-    redirectAdmin("product");
+    echo "<script>alert('Xóa thành công!');location.href='" . base_url() . "admin/modules/product'</script>";
 } else {
-    # code...
-    $_SESSION['error'] = "xoa that bai";
-    redirectAdmin("product");
+    echo "<script>alert('Xóa thất bại!');location.href='" . base_url() . "admin/modules/product'</script>";
 }
 
 

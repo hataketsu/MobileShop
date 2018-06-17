@@ -2,7 +2,7 @@
 
 $open = "category";
 
-$category = $db->fetchAll("category");
+$categories = $db->fetchAll("category");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     # code...
     $data =
@@ -103,10 +103,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Danh mục sản phẩm</label>
+                        <label >Danh mục sản phẩm</label>
                         <select class="form-control col-md-8" name="category_id">
                             <option value="">-Mời bạn chọn danh mục sản phẩm-</option>
-                            <?php foreach ($category as $item): ?>
+                            <?php foreach ($categories as $item): ?>
                                 <option value="<?= $item['id'] ?>"><?php echo
                                     $item['name'] ?></option>
                             <?php endforeach ?>
@@ -121,8 +121,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Tên sản phẩm</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <label >Tên sản phẩm</label>
+                        <input type="text" class="form-control" 
                                placeholder="sản phẩm" name="name">
                         <?php if (isset($error['name'])): ?>
                             <p class="text-danger"> <?= $error['name']; ?></p>
@@ -134,8 +134,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Giá sản phẩm</label>
-                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <label >Giá sản phẩm</label>
+                        <input type="number" class="form-control" 
                                placeholder="giá" name="price">
                         <?php if (isset($error['price'])): ?>
                             <p class="text-danger"> <?= $error['price']; ?></p>
@@ -147,8 +147,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Số lượng</label>
-                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <label >Số lượng</label>
+                        <input type="number" class="form-control" 
                                placeholder="số lượng" name="number">
                         <?php if (isset($error['number'])): ?>
                             <p class="text-danger"> <?= $error['number']; ?></p>
@@ -157,31 +157,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Giảm giá</label>
-                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <label >Giảm giá</label>
+                        <input type="number" class="form-control" 
                                placeholder="sale" name="sale" value="0">
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Hình ảnh</label>
-                        <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <label >Hình ảnh</label>
+                        <input type="file" class="form-control" 
                                name="image">
                         <?php if (isset($error['image'])): ?>
                             <p class="text-danger"> <?= $error['image']; ?></p>
-
-
                         <?php endif ?>
-
                     </div>
 
-
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Nội dung</label>
+                        <label >Nội dung</label>
                         <textarea class="form-control" name="content"></textarea>
                         <?php if (isset($error['content'])): ?>
                             <p class="text-danger"> <?= $error['content']; ?></p>
-
-
                         <?php endif ?>
 
                     </div>
