@@ -125,7 +125,7 @@
                         <a href="">Contact</a>
                     </li>
                     <li>
-                        <a href="">Blog</a>
+                        <a href="../list_blog.php">Blog</a>
                     </li>
                     <li>
                         <a href="">About us</a>

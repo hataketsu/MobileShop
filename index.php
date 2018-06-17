@@ -27,7 +27,6 @@ foreach ($categoryHome as $item) {
                 } ?>
             </div>
         <?php endforeach ?>
-
     </section>
 
 </div>

@@ -69,7 +69,7 @@ $spkemtheo = $db->fetchsql($sql);
                     <p><?= $product['content'] ?></p>
                 </div>
                 <div id="menu1" class="tab-pane fade">
-                    <div class="fb-comments" data-href="http://banhang.test/<?= 4 ?>" data-width="800"
+                    <div class="fb-comments" data-href="<?=base_url()?>/<?= $product['id'] ?>" data-width="800"
                          data-numposts="5"></div>
                 </div>
 
