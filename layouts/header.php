@@ -71,10 +71,10 @@ logInc("page_view");
         <div class="container">
             <div class="row" id="header-main">
                 <div class="col-md-5">
-                    <form class="form-inline">
+                    <form class="form-inline" action="../search.php" method="get">
                         <div class="form-group">
                             <label>
-                                <select name="category" class="form-control">
+                                <select name="category" class="form-control" id="query_cat">
                                     <option value="-1"> Tất cả danh mục</option>
                                     <?php foreach ($categories as $item): ?>
                                         <option value="<?= $item['id'] ?>">
@@ -83,10 +83,20 @@ logInc("page_view");
                                     <?php endforeach ?>
                                 </select>
                             </label>
-                            <input type="text" name="keywork" placeholder=" input keywork" class="form-control">
+                            <input type="text" name="keyword" placeholder=" input keywork" class="form-control"
+                                   value="<?= isset($_REQUEST['keyword']) ? $_REQUEST['keyword'] : '' ?>">
                             <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                         </div>
                     </form>
+                    <script>
+                        $(function () {
+                                <?php
+                                if( isset($_REQUEST['category'])){ ?>
+                                $("#query_cat").val(<?=$_REQUEST['category']?>);
+                                <?php } ?>
+                            }
+                        );
+                    </script>
                 </div>
                 <div class="col-md-4">
                     <a href="<?= base_url() ?>">

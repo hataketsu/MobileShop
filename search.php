@@ -1,32 +1,37 @@
 <?php require_once __DIR__ . "/autoload/autoload.php";
 
-$sqlHomecate = "select name,id from category where home = 1 order by updated_at ";
-$categoryHome = $db->fetchsql($sqlHomecate);
-
-$data = [];
-foreach ($categoryHome as $item) {
-    $cateId = intval($item['id']);
-    $sql = "select * from product where category_id=$cateId";
-    $productHome = $db->fetchsql($sql);
-    $data[$item['name']] = $productHome;
+$category_id = intval($_REQUEST['category']);
+if (isset($_REQUEST['page']))
+    $page = intval($_REQUEST['page']);
+else $page = 1;
+$keyword = $_REQUEST['keyword'];
+if ($category_id == -1) {
+    $sql = " select * from product where name like '%$keyword%' ";
+} else {
+    $sql = " select * from product  where name like '%$keyword%' and category_id = $category_id ";
 }
+
+$products = $db->fetchJone("product", $sql, $page, PRODUCTS_PER_SEARCH, true);
+
+if (isset($products['page'])) {
+    $pageNumber = $products['page'];
+    unset($products['page']);
+}
+
 ?>
 
 <?php require_once __DIR__ . "/layouts/header.php"; ?>
 <div class="col-md-9 bor">
-    <section id="slide" class="text-center">
-        <img src="<?= base_url() ?>public/frontend/images/banner.jpg" width="100%">
-    </section>
-
     <section class="box-main1">
-        <?php foreach ($data as $key => $value): ?>
-            <h3 class="title-main"><a href=""> <?= $key ?></a></h3>
-            <div class="showitem row">
-                <?php foreach ($value as $item) {
-                    include 'view/product_card.php';
-                } ?>
-            </div>
-        <?php endforeach ?>
+        <h3 class="title-main"><a> Kết quả tim kiếm cho từ khóa "<?= $keyword ?>"</a></h3>
+        <div class="showitem row">
+            <?php foreach ($products as $item) {
+                include 'view/product_card.php';
+            } ?>
+        </div>
+        <div style="text-align: center">
+            <?php include 'view/page_index.php'; ?>
+        </div>
     </section>
 
 </div>

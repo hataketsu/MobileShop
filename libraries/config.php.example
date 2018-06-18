@@ -7,3 +7,4 @@ define("BASE_URL","http://localhost/v/");
 define("ENABLE_FACEBOOK_CHAT", false);
 
 define("BLOGS_PER_PAGE", 5);
+define("PRODUCTS_PER_SEARCH", 5);

@@ -199,7 +199,7 @@ class Database
             $sql .= " LIMIT $start,$row";
             $data = ["page" => $sotrang];
 
-            $result = mysqli_query($this->link, $sql) or die("Lỗi truy vấn fetchJone ---- " . mysqli_error($this->link));
+            $result = mysqli_query($this->link, $sql) or die("Lỗi truy vấn fetchJone ---- " . mysqli_error($this->link). "$sql");
         } else {
             $result = mysqli_query($this->link, $sql) or die("Lỗi truy vấn fetchJone ---- " . mysqli_error($this->link));
         }
