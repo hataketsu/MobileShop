@@ -65,19 +65,7 @@ if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
             <ul class="list-group">
                 <li class="list-group-item"><h3>Thông tin đơn hàng</h3></li>
                 <li class="list-group-item">
-                    <span class="badge"><?= formatPrice($_SESSION['tongtien']) ?></span>Số tiền
-                </li>
-                <li class="list-group-item">
-                    <span class="badge">10%</span>
-                    Thuế VAT
-                </li>
-                <li class="list-group-item">
-                    <span class="badge"><?= sale($_SESSION['tongtien']) ?>%</span>Giảm giá
-                </li>
-
-                <li class="list-group-item">
-                    <span class="badge"><?php $_SESSION['total'] = $_SESSION['tongtien'] * 110 / 110;
-                        echo formatPrice($_SESSION['total']) ?></span>Tổng tiền thanh toán
+                    <span class="badge"><?= formatPrice($_SESSION['tongtien']) ?> đ </span>Tổng tiền thanh toán
                 </li>
                 <li class="list-group-item">
                     <a href="index.php" class="btn btn-success">Tiếp tục mua hàng</a>

@@ -66,18 +66,7 @@ foreach ($orders as $index => $order) {
                             <p><b><?= $user['address'] ?></b></p>
                         </li>
                         <li class="list-group-item">
-                            <span class="badge"><?= formatPrice($transaction['amount']) ?> đ</span>Số tiền
-                        </li>
-                        <li class="list-group-item">
-                            <span class="badge">10%</span>Thuế VAT
-                        </li>
-                        <li class="list-group-item">
-                            <span class="badge"><?= sale($_SESSION['tongtien']) ?>%</span>Giảm giá
-                        </li>
-
-                        <li class="list-group-item">
-                    <span class="badge"><?php $_SESSION['total'] = $_SESSION['tongtien'] * 110 / 110;
-                        echo formatPrice($_SESSION['total']) ?></span>Tổng tiền thanh toán
+                            <span class="badge"><?= formatPrice($transaction['amount']) ?> đ</span>Tổng tiền thanh toán
                         </li>
                     </ul>
                 </div>
