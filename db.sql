@@ -106,6 +106,36 @@ INSERT INTO `category` VALUES (2,'iphone','iphone',NULL,NULL,1,1,'2018-05-04 15:
 UNLOCK TABLES;
 
 --
+-- Table structure for table `logs`
+--
+
+DROP TABLE IF EXISTS `logs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `logs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `page_view` int(11) NOT NULL,
+  `new_transaction` int(11) NOT NULL,
+  `process_transaction` int(11) NOT NULL,
+  `date` int(11) NOT NULL,
+  `user_reg` int(11) NOT NULL,
+  `revenue` int(11) NOT NULL,
+  UNIQUE KEY `id_2` (`id`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `logs`
+--
+
+LOCK TABLES `logs` WRITE;
+/*!40000 ALTER TABLE `logs` DISABLE KEYS */;
+INSERT INTO `logs` VALUES (4,0,0,0,1529107200,0,244),(5,36,0,0,1529193600,0,732),(6,181,0,0,1529280000,0,0);
+/*!40000 ALTER TABLE `logs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `orders`
 --
 
@@ -168,7 +198,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (7,'san pham 3','san-pham-3',200000,0,'16-270x270.png',4,'ok',1,0,0,1,NULL,'2018-06-16 03:29:53'),(10,'iphone X','iphone-x',25000000,0,'ip.png',2,'ok',12,0,0,0,NULL,NULL);
+INSERT INTO `product` VALUES (7,'xperia m2','xperia-m2',200000,0,'16-270x270.png',4,'ok',20,0,0,1,NULL,'2018-06-18 04:57:28'),(10,'iphone X','iphone-x',25000000,0,'ip.png',2,'ok',12,0,0,0,NULL,NULL);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -244,4 +274,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-17 21:26:40
+-- Dump completed on 2018-06-18 13:36:18
