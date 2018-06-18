@@ -26,10 +26,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="<?= base_url() ?>admin">
+            <li class="nav-item <?= isset($open) && $open == 'dashboard' ? 'active' : '' ?>">
+                <a class="nav-link" href="<?= modules('statistic') ?>">
                     <i class="fa fa-fw fa-dashboard"></i>
-                    <span class="nav-link-text">Dashboard</span>
+                    <span class="nav-link-text">Thống kê</span>
                 </a>
             </li>
             <li class="nav-item <?= isset($open) && $open == 'category' ? 'active' : '' ?>">

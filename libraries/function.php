@@ -1,5 +1,10 @@
 <?php
+
+
+require_once 'Carbon.php';
+
 require_once 'config.php';
+require_once 'database.php';
 
 /**
  * debug
@@ -184,6 +189,45 @@ function sale($number)
         return 10;
     }
 
+}
+
+function getLog($timestamp)
+{
+    if (!isset($db))
+        $db = new Database();
+    $log = $db->count("select count(*) as _count from logs where date = $timestamp");
+    $count = $log['_count'];
+    if ($count == 0) {
+        $db->insert("logs", ["date" => $timestamp]);
+    }
+    return $db->fetchOne("logs", " date = $timestamp ");
+}
+
+function getLogOrEmpty($timestamp)
+{
+    if (!isset($db))
+        $db = new Database();
+    $log = $db->count("select count(*) as _count from logs where date = $timestamp");
+    $count = $log['_count'];
+    if ($count == 0) {
+        return ['page_view' => 0,
+            'new_transaction' => 0,
+            'process_transaction' => 0,
+            'date' => 0,
+            'user_reg' => 0,
+            'revenue' => 0];
+    }
+    return $db->fetchOne("logs", " date = $timestamp ");
+}
+
+function logInc($field, $value = 1)
+{
+    if (!isset($db))
+        $db = new Database();
+    $log = getLog(\Carbon\Carbon::today()->timestamp);
+
+    $log[$field] += $value;
+    $db->update('logs', $log, ['id' => $log['id']]);
 }
 
 ?>

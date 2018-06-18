@@ -28,7 +28,7 @@ if (isset($transactions['page'])) {
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Danh sách đơn hàng</a>
+                <a href="">Danh sách đơn hàng</a>
             </li>
             <li class="breadcrumb-item active">Đơn hàng</li>
 

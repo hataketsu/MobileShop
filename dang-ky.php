@@ -1,18 +1,7 @@
 <?php require_once __DIR__ . "/autoload/autoload.php";
 
-// $conn=mysqli_connect("localhost", "root", "" ,"webbanhang");
-// if (mysqli_connect_errno()) {
-// 	# code...
-// 	echo "fail".mysqli_connect_errno();
-// }
-// mysqli_set_charset($conn,"utf8");
-
-// $name=$email=$password=$address=$phone='';
-
 if (isset($_SESSION['name_id'])) {
-
     echo "<script>location.href='index.php'</script>";
-    # code...
 }
 
 $data =
@@ -60,16 +49,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($error)) {
-        # code...
-        // $sql=" insert into users(name,email,password,phone,address) values
-        // ( '".$name."','".$email."','".md5($password)."','".$phone."','".$address."' )";
-        // $insert=mysqli_query($conn,$sql) or die("Thêm mới thất bại");
-
 
         $insert_id = $db->insert("users", $data);
         if ($insert_id > 0) {
             # code...
             $_SESSION['success'] = "Đăng ký thành công ! Mời bạn đăng nhập";
+            logInc('user_reg');
             header("location:dang-nhap.php");
         } else {
             # code...

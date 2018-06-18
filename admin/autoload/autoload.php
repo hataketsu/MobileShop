@@ -10,7 +10,5 @@ if (!isset($_SESSION['admin_id'])) {
 
 define("ROOT", base_url() . "/public/uploads/");
 
-?>
-
 
 

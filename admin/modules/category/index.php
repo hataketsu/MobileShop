@@ -9,7 +9,7 @@ $category = $db->fetchAll("category");
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Danh sách danh mục</a>
+                <a href="">Danh sách danh mục</a>
             </li>
             <li class="breadcrumb-item active">Danh mục</li>
 

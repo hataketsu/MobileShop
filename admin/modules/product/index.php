@@ -27,7 +27,7 @@ if (isset($products['page'])) {
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Danh sách sản phẩm</a>
+                <a href="">Danh sách sản phẩm</a>
             </li>
             <li class="breadcrumb-item active">Sản phẩm</li>
 
@@ -78,8 +78,8 @@ if (isset($products['page'])) {
                                              width="80px" height="80px"></td>
                                     <td>
                                         <ul>
-                                            <li>Giá: <?= $item['price'] ?></li>
-                                            <li>Số lượng <?= $item['number'] ?></li>
+                                            <li>Giá: <?= formatPrice($item['price']) ?> đ</li>
+                                            <li>Số lượng: <?= $item['number'] ?></li>
                                         </ul>
                                     </td>
                                     <td><a class="btn btn-xs btn-info" href="update.php?id=<?= $item['id'] ?>">

@@ -17,7 +17,7 @@ foreach ($orders as $index => $order) {
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="index.html">Đơn hàng</a>
+                    <a href="">Đơn hàng</a>
                 </li>
                 <li class="breadcrumb-item active">Chi tiết đơn hàng</li>
 

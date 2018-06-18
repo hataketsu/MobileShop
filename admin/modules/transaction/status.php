@@ -20,8 +20,9 @@ $update = $db->update("transaction", array("status" => $status), array("id" => $
 
 if ($update > 0) {
     # code...
-    $_SESSION['success'] = "Cập nhật thanh cong";
-
+    $_SESSION['success'] = "Cập nhật thành công";
+    logInc('process_transaction');
+    logInc('revenue', $Edit_trans['amount']);
     $sql = "select product_id from  orders where transaction_id=$id";
     $order = $db->fetchsql($sql);
     foreach ($order as $item) {

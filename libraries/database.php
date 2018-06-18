@@ -221,6 +221,12 @@ class Database
         return $num;
     }
 
+    public function count($sql)
+    {
+        $result = mysqli_query($this->link, $sql)->fetch_array() or die("Lỗi Truy Vấn count----" . mysqli_error($this->link));
+        return $result;
+    }
+
     public function fetchJoneDetail($table, $sql, $page = 0, $total, $pagi)
     {
         $result = mysqli_query($this->link, $sql) or die("Lỗi truy vấn fetchJone ---- " . mysqli_error($this->link));

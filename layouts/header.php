@@ -1,3 +1,7 @@
+<?php
+logInc("page_view");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

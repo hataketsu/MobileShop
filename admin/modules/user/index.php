@@ -28,7 +28,7 @@ if (isset($user['page'])) {
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Danh sách thành viên</a>
+                <a href="">Danh sách thành viên</a>
             </li>
             <li class="breadcrumb-item active">Thành viên</li>
 

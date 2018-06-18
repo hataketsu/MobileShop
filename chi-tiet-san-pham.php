@@ -19,25 +19,6 @@ $spkemtheo = $db->fetchsql($sql);
             <img src="<?= uploads() ?>product/<?= $product['image'] ?>" class="img-responsive bor"
                  id="imgmain" width="100%" height="370" data-zoom-image="images/16-270x270.png">
 
-            <ul class="text-center bor clearfix" id="imgdetail">
-                <li>
-                    <img src="<?= base_url() ?>public/frontend/images/16-270x270.png"
-                         class="img-responsive pull-left" width="80" height="80">
-                </li>
-                <li>
-                    <img src="<?= base_url() ?>public/frontend/images/16-270x270.png"
-                         class="img-responsive pull-left" width="80" height="80">
-                </li>
-                <li>
-                    <img src="<?= base_url() ?>public/frontend/images/16-270x270.png"
-                         class="img-responsive pull-left" width="80" height="80">
-                </li>
-                <li>
-                    <img src="<?= base_url() ?>public/frontend/images/16-270x270.png"
-                         class="img-responsive pull-left" width="80" height="80">
-                </li>
-
-            </ul>
         </div>
         <div class="col-md-6 bor" style="margin-top: 20px;padding: 30px;">
             <ul id="right">

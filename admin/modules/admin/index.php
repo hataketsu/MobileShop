@@ -28,7 +28,7 @@ if (isset($admin['page'])) {
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Danh sách admin</a>
+                <a href="">Danh sách admin</a>
             </li>
             <li class="breadcrumb-item active">Admin</li>
 
