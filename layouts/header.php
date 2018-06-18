@@ -71,7 +71,7 @@ logInc("page_view");
         <div class="container">
             <div class="row" id="header-main">
                 <div class="col-md-5">
-                    <form class="form-inline" action="../search.php" method="get">
+                    <form class="form-inline" action="<?=base_url()?>search.php" method="get">
                         <div class="form-group">
                             <label>
                                 <select name="category" class="form-control" id="query_cat">
