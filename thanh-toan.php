@@ -3,10 +3,11 @@
 $user = $db->findByID("users", intval($_SESSION['name_id']));
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     # code...
     $data =
         [
-            'amount' => $_SESSION['total'],
+            'amount' => $_SESSION['tongtien'],
             'users_id' => $_SESSION['name_id'],
             'note' => postInput("note")
 
