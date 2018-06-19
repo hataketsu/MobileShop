@@ -23,11 +23,11 @@ if ($update > 0) {
     $_SESSION['success'] = "Cập nhật thành công";
     logInc('process_transaction');
     logInc('revenue', $Edit_trans['amount']);
-    $sql = "select product_id from  orders where transaction_id=$id";
+    $sql = "select * from  orders where transaction_id=$id";
     $order = $db->fetchsql($sql);
     foreach ($order as $item) {
         # code...
-        $idproduct = intval($item['product_id']);
+        $idproduct = $item['product_id'];
         $product = $db->findByID("product", $idproduct);
 
         $nb = $product['number'] - $item['number'];
