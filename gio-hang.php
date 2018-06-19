@@ -34,7 +34,6 @@ if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
             <tbody>
             <?php $stt = 1;
             foreach ($_SESSION['cart'] as $key => $value): ?>
-
                 <tr>
                     <td><?= $stt ?></td>
                     <td><a href="chi-tiet-san-pham.php?id=<?= $key ?>"><?= $value['name'] ?></a></td>

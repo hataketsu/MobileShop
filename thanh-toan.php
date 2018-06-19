@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label class="col-md-2 col-md-offset-1">Số tiền</label>
                 <div class="col-md-8">
                     <input type="text" readonly="" name="address" placeholder="" class="form-control"
-                           value="<?= formatPrice($_SESSION['total']) ?>">
+                           value="<?= formatPrice($_SESSION['tongtien']) ?>">
 
                 </div>
             </div>
