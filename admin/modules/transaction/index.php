@@ -117,23 +117,22 @@ if (isset($transactions['page'])) {
                             </tbody>
                         </table>
                         <div class="pull-right">
-                            <nav aria-label="Page navigation example">
+                            <nav>
                                 <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                    <?php for ($i = 1; $i <= $sotrang; $i++) ?>
+                                    <li class="page-item"><a class="page-link" href="#">Trước</a></li>
+                                    <?php for ($i = 1; $i <= $sotrang; $i++) { ?>
                                         <?php
-                                    if (isset($_GET['page'])) {
-                                        $p = $_GET['page'];
-                                        # code...
-                                    } else {
-                                        $p = 1;
-                                    }
-                                    ?>
-                                    <li class="page-item<?= ($i == $p) ? 'active' : '' ?>"><a class="page-link"
-                                                                                              href="?page=<?= $i; ?>"><?= $i; ?></a>
-                                    </li>
-
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                        if (isset($_GET['page'])) {
+                                            $page = $_GET['page'];
+                                        } else {
+                                            $page = 1;
+                                        }
+                                        ?>
+                                        <li class="page-item<?= ($i == $page) ? 'active' : '' ?>"><a
+                                                    class="page-link"
+                                                    href="?page=<?= $i; ?>"><?= $i; ?></a></li>
+                                    <?php } ?>
+                                    <li class="page-item"><a class="page-link" href="#">Tiếp</a></li>
                                 </ul>
                             </nav>
                         </div>
