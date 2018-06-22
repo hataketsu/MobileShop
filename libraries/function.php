@@ -5,7 +5,6 @@ require_once 'Carbon.php';
 
 require_once 'config.php';
 require_once 'database.php';
-
 /**
  * debug
  **/
@@ -82,6 +81,7 @@ if (!function_exists('xss_clean')) {
         return $data;
     }
 }
+
 /**
  * get input
  */

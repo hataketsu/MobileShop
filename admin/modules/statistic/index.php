@@ -1,5 +1,4 @@
 <?php require_once __DIR__ . "/../../autoload/autoload.php";
-
 require_once '../../../libraries/Carbon.php';
 
 use Carbon\Carbon;
@@ -7,7 +6,7 @@ use Carbon\Carbon;
 function getYears(Carbon $start, Carbon $end)
 {
     $years = $end->diffInYears($start);
-    $result =[];
+    $result = [];
 
     for ($i = 0; $i <= $years; $i++) {
         $nextYear = $start->copy();
@@ -91,6 +90,26 @@ if ($end->diffInYears($start) > 2) {
 } else {
     $logs = getDays($start, $end);
 }
+if (isset($_REQUEST['export'])) {
+    $file = fopen('data.csv','w');
+    fseek($file,0);
+    $titles = ['page_view' => 'Lượt xem trang', 'new_transaction' => 'Đơn hàng mới', 'process_transaction'=>'Xử lý đơn hàng', 'user_reg' => 'Lượt đăng ký mới', 'revenue' => 'Doanh thu', 'label' => 'Thời gian'];
+
+    foreach ($titles as $key => $value) {
+        fwrite($file,$value. ',');
+    }
+    fwrite($file,"\n");
+
+    foreach ($logs as $row) {
+        foreach ($titles as $key => $value) {
+            fwrite($file,$row[$key]. ',');
+        }
+        fwrite($file,"\n");
+    }
+    fclose($file);
+    redirect("admin/modules/statistic/download.php?filename=Báo cáo bán hàng $start - $end.csv");
+    die();
+}
 
 $open = "dashboard";
 
@@ -128,7 +147,14 @@ $open = "dashboard";
             <h3 class="ui header">Lượt khách xem trang</h3>
             <canvas id="visits_chart"></canvas>
             <br>
+            <center>
+                <a class="btn btn-primary"
+                   href="<?= modules('statistic') . '/index.php?' . http_build_query($_GET) . '&export' ?>">
+                    <i class="fa fa-download" style="margin-right: 10px"></i>
+                    Tải về báo cáo</a>
 
+            </center>
+            <br>
         </div>
         <script>
             var start = moment("<?=$start->format('M d,Y')?>");
@@ -201,4 +227,5 @@ $open = "dashboard";
                 }
             });
         </script>
+
 <?php require_once __DIR__ . "/../../layouts/footer.php" ?>
